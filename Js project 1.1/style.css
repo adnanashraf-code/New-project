@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -15,7 +16,8 @@ html, body {
   background-color: black;
 }
 #main #me {
-  height: 10rem;
+  height: 9rem;
   position: fixed;
+  transform: translate(-50%, -50%);
   cursor: none;
 }/*# sourceMappingURL=style.css.map */
