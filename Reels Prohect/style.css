@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle at center, wheat 0%, gray 50%, black 100%);
+  padding: 20px;
+}
+#main #card {
+  height: 100%;
+  width: 450px;
+  background-color: #110101;
+  margin: auto;
+  border-radius: 10px;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+#main #card .myreels {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  border-radius: 10px;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+#main #card .myreels::-webkit-scrollbar {
+  display: none;
+}
+#main #card .myreels .reels {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+#main #card .myreels .reels img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#main #card .myreels .reels .buttom {
+  width: 100%;
+  padding: 20px 30px;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.829));
+  position: absolute;
+  bottom: 0;
+  border-radius: 10px;
+}
+#main #card .myreels .reels .buttom .user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+#main #card .myreels .reels .buttom .user img {
+  height: 40px;
+  width: 40px;
+  border-radius: 30%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#main #card .myreels .reels .buttom .user h2 {
+  font-size: 1.5rem;
+  color: #aaa;
+}
+#main #card .myreels .reels .buttom .user button {
+  background-color: transparent;
+  color: whitesmoke;
+  padding: 3px 8px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#main #card .myreels .reels .buttom .user button:active {
+  transform: scale(0.96);
+}
+#main #card .myreels .reels .buttom h3 {
+  color: #b5b5b5;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+#main #card .myreels .reels .right {
+  width: 40px;
+  right: 0;
+  bottom: 13%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  margin-right: 10px;
+}
+#main #card .myreels .reels .right i {
+  font-size: 2rem;
+}
+#main #card .myreels .reels .right span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: wheat;
+}
+#main #card .myreels .reels .right h4 {
+  cursor: pointer;
+}
+#main #card .myreels .reels .right h4:active {
+  transform: scale(0.96);
+}
+#main #card .myreels .reels .right div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}/*# sourceMappingURL=style.css.map */
