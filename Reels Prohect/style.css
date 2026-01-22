@@ -46,10 +46,10 @@ body {
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
-  scroll-snap-align: start;
   scroll-snap-stop: always;
+  scroll-snap-align: start;
 }
-#main #card .myreels .reels img {
+#main #card .myreels .reels video {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -78,7 +78,7 @@ body {
 }
 #main #card .myreels .reels .buttom .user h2 {
   font-size: 1.5rem;
-  color: #aaa;
+  color: #ffffff;
 }
 #main #card .myreels .reels .buttom .user button {
   background-color: transparent;
@@ -111,6 +111,9 @@ body {
 }
 #main #card .myreels .reels .right i {
   font-size: 2rem;
+}
+#main #card .myreels .reels .right .love {
+  color: red;
 }
 #main #card .myreels .reels .right span {
   font-size: 1.2rem;

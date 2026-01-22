@@ -46,10 +46,10 @@ body {
         overflow: hidden;
         position: relative;
         margin-bottom: 20px;
-        scroll-snap-align: start;
         scroll-snap-stop: always;
+        scroll-snap-align: start;
         
-        img {
+        video {
           height: 100%;
           width: 100%;
           object-fit: cover;
@@ -76,7 +76,7 @@ body {
             }
             h2 {
               font-size: 1.5rem;
-              color: #aaa;
+              color: #ffffff;
             }
             button {
               background-color: transparent;
@@ -111,6 +111,10 @@ body {
           margin-right: 10px;
           i {
             font-size: 2rem;
+            
+          }
+          .love{
+            color: red;
           }
           span {
             font-size: 1.2rem;
