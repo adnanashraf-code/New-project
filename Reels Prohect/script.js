@@ -4,6 +4,7 @@ const reels = [
     likeCount: 1200000,
     isLiked: false,
     isFollowed: false,
+    ismuted: true,
     commentCount: 743000,
     shareCount: 400000,
     video: "vedios/vedio1.mp4",
@@ -14,8 +15,9 @@ const reels = [
   {
     name: "Aisha Khan",
     likeCount: 865000,
-    isLiked: true,
+    isLiked: false,
     isFollowed: true,
+    ismuted: true,
     commentCount: 132000,
     shareCount: 98000,
     video: "vedios/vedio2.mp4",
@@ -27,6 +29,7 @@ const reels = [
     likeCount: 540000,
     isLiked: false,
     isFollowed: false,
+    ismuted: true,
     commentCount: 87000,
     shareCount: 46000,
     video: "vedios/vedio3.mp4",
@@ -37,8 +40,9 @@ const reels = [
   {
     name: "Sofia Williams",
     likeCount: 910000,
-    isLiked: true,
+    isLiked: false,
     isFollowed: true,
+    ismuted: true,
     commentCount: 145000,
     shareCount: 110000,
     video: "vedios/vedio4.mp4",
@@ -51,6 +55,7 @@ const reels = [
     likeCount: 670000,
     isLiked: false,
     isFollowed: false,
+    ismuted: true,
     commentCount: 98000,
     shareCount: 62000,
     video: "vedios/vedio5.mp4",
@@ -61,8 +66,9 @@ const reels = [
   {
     name: "Emily Carter",
     likeCount: 1100000,
-    isLiked: true,
+    isLiked: false,
     isFollowed: true,
+    ismuted: true,
     commentCount: 215000,
     shareCount: 180000,
     video: "vedios/vedio6.mp4",
@@ -75,6 +81,7 @@ const reels = [
     likeCount: 430000,
     isLiked: false,
     isFollowed: true,
+    ismuted: true,
     commentCount: 56000,
     shareCount: 31000,
     video: "vedios/vedio7.mp4",
@@ -85,8 +92,9 @@ const reels = [
   {
     name: "Olivia Brown",
     likeCount: 780000,
-    isLiked: true,
+    isLiked: false,
     isFollowed: false,
+    ismuted: true,
     commentCount: 112000,
     shareCount: 76000,
     video: "vedios/vedio8.mp4",
@@ -99,6 +107,7 @@ const reels = [
     likeCount: 690000,
     isLiked: false,
     isFollowed: true,
+    ismuted: true,
     commentCount: 94000,
     shareCount: 58000,
     video: "vedios/vedio9.mp4",
@@ -109,8 +118,9 @@ const reels = [
   {
     name: "Noah Smith",
     likeCount: 510000,
-    isLiked: true,
+    isLiked: false,
     isFollowed: true,
+    ismuted: true,
     commentCount: 67000,
     shareCount: 42000,
     video: "vedios/vedio10.mp4",
@@ -119,24 +129,29 @@ const reels = [
   },
 ];
 
-let sum = "";
-reels.forEach(function (dets) {
-  sum =
-    sum +
-    `<div class="reels">
-            <video autoplay loop muted src="${dets.video}"></video>
+let yo = document.querySelector(".myreels");
+
+function addData() {
+  let sum = "";
+  reels.forEach(function (dets, idx) {
+    sum =
+      sum +
+      `<div class="reels">
+            <video autoplay loop  ${dets.ismuted ? "muted" : ""} src="${dets.video}"></video>
+            <button class="mute" id=${idx} > ${dets.ismuted ? '<i class="ri-volume-mute-line"></i>' : '<i class="ri-volume-up-line"></i>'}
+            </button>
             <div class="buttom">
               <div class="user">
                 <img src="${dets.profilePhoto}" alt="" />
                 <h2>${dets.name}</h2>
-                <button>${dets.isFollowed ? "unfollow" : "follow"}</button>
+                <button id =${idx} class= "follow">${dets.isFollowed ? "Unfollow" : "Follow"}</button>
               </div>
               <h3>
                 ${dets.caption}
               </h3>
             </div>
             <div class="right">
-              <div class="like">
+              <div id= ${idx} class="like">
                 <h4 class="like me">${dets.isLiked ? '<i class="love ri-heart-3-fill"></i>' : '<i class="ri-heart-3-line"></i>'}</h4>
                 <span>${dets.likeCount}</span>
               </div>
@@ -153,9 +168,40 @@ reels.forEach(function (dets) {
               </div>
             </div>
           </div>`;
+  });
+
+  yo.innerHTML = sum;
+}
+
+addData();
+
+yo.addEventListener("click", function (dets) {
+ yo.innerHTML= dets.preventDefault();
+  if (dets.target.className == "like") {
+    if (!reels[dets.target.id].isLiked) {
+      reels[dets.target.id].likeCount++;
+      reels[dets.target.id].isLiked = true;
+    } else {
+      reels[dets.target.id].likeCount--;
+      reels[dets.target.id].isLiked = false;
+    }
+    addData();
+  }
+  if (dets.target.className == "follow") {
+    if (!reels[dets.target.id].isFollowed) {
+      reels[dets.target.id].isFollowed = true;
+    } else {
+      reels[dets.target.id].isFollowed = false;
+    }
+    addData();
+  }
+
+  if (dets.target.className == "mute") {
+    if (!reels[dets.target.id].ismuted) {
+      reels[dets.target.id].ismuted = true;
+    } else {
+      reels[dets.target.id].ismuted = false;
+    }
+    addData();
+  }
 });
-
-let yo = document.querySelector(".myreels");
-
-yo.innerHTML = sum;
-// console.log(sum);
